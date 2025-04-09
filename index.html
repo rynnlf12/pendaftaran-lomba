@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulir Pendaftaran Lomba</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Pendaftaran Lomba PMR</h1>
+    <img src="image.png" alt="Logo PMI" class="logo" />
+  </header>
+
+  <form id="formPendaftaran">
+    <section class="form-section">
+      <label for="namaSekolah">Nama Sekolah</label>
+      <input type="text" id="namaSekolah" name="namaSekolah" required />
+
+      <label for="namaPembina">Nama Pembina</label>
+      <input type="text" id="namaPembina" name="namaPembina" required />
+
+      <label for="noHpPembina">No. HP Pembina</label>
+      <input type="tel" id="noHpPembina" name="noHpPembina" required />
+
+      <div class="lomba">
+        <label><input type="checkbox" name="lomba" value="Tandu Putra" data-biaya="65000" data-orang="2" />Tandu Putra (Rp.65.000)</label>
+        <label><input type="checkbox" name="lomba" value="Tandu Putri" data-biaya="65000" data-orang="2" />Tandu Putri (Rp.65.000)</label>
+        <label><input type="checkbox" name="lomba" value="Pertolongan Pertama" data-biaya="70000" data-orang="4" />Pertolongan Pertama (Rp.70.000)</label>
+        <label><input type="checkbox" name="lomba" value="Senam Kreasi Poco-Poco" data-biaya="75000" data-orang="8" />Senam Kreasi Poco-Poco (Rp.75.000)</label>
+        <label><input type="checkbox" name="lomba" value="Mojang Jajaka" data-biaya="70000" data-orang="2" />Mojang Jajaka (Rp.70.000)</label>
+        <label><input type="checkbox" name="lomba" value="Poster" data-biaya="50000" data-orang="3" />Poster (Rp.50.000)</label>
+      </div>
+
+      <div id="timContainer"></div>
+    </section>
+
+    <section class="form-section">
+      <h2>Metode Pembayaran</h2>
+      <p><strong>Nama Bank:</strong> BCA</p>
+      <p><strong>No. Rekening:</strong> 1970769401</p>
+
+      <label for="buktiTransfer">Upload Bukti Pembayaran</label>
+      <input type="file" id="buktiTransfer" name="buktiTransfer" accept="image/*,application/pdf" required />
+      <small id="fileNameDisplay" style="color: #d10000; margin-top: 0.5rem; display: block;"></small>
+
+      <div class="total-biaya">
+        Total Biaya: Rp <span id="totalBiaya">0</span>
+      </div>
+
+      <button type="submit">Kirim Pendaftaran</button>
+    </section>
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>

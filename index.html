@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendaftaran Lomba PMR</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <header>
+    <h1>Pendaftaran Lomba PMR</h1>
+    <img src="image.png" alt="Logo PMI">
+  </header>
+
+  <!-- Formulir Pendaftaran -->
+  <section id="sectionPengisian">
+    <form id="formPendaftaran">
+      <label for="namaSekolah">Nama Sekolah</label>
+      <input type="text" id="namaSekolah" name="namaSekolah" required />
+
+      <label for="namaPembina">Nama Pembina</label>
+      <input type="text" id="namaPembina" name="namaPembina" required />
+
+      <label for="noHpPembina">No. HP Pembina</label>
+      <input type="tel" id="noHpPembina" name="noHpPembina" required />
+
+      <div class="lomba">
+        <label><input type="checkbox" name="lomba" value="Tandu Putra" data-biaya="65000" data-orang="2"> Tandu Putra (Rp.65.000)</label>
+        <label><input type="checkbox" name="lomba" value="Tandu Putri" data-biaya="65000" data-orang="2"> Tandu Putri (Rp.65.000)</label>
+        <label><input type="checkbox" name="lomba" value="Pertolongan Pertama" data-biaya="70000" data-orang="4"> Pertolongan Pertama (Rp.70.000)</label>
+        <label><input type="checkbox" name="lomba" value="Senam Kreasi Poco-Poco" data-biaya="75000" data-orang="8"> Senam Kreasi Poco-Poco (Rp.75.000)</label>
+        <label><input type="checkbox" name="lomba" value="Mojang Jajaka" data-biaya="70000" data-orang="2"> Mojang Jajaka (Rp.70.000)</label>
+        <label><input type="checkbox" name="lomba" value="Poster" data-biaya="50000" data-orang="3"> Poster (Rp.50.000)</label>
+      </div>
+
+      <div id="timContainer"></div>
+
+      <div class="total-biaya">
+        Total Biaya: Rp <span id="totalBiaya">0</span>
+      </div>
+
+      <button type="submit">Lanjut ke Pembayaran</button>
+    </form>
+  </section>
+
+  <!-- Halaman Pembayaran -->
+  <section id="sectionPembayaran" style="display: none; animation: fadeIn 0.5s ease-in-out;">
+    <div class="payment-container">
+      <h2>Metode Pembayaran</h2>
+      <div class="bank-options">
+        <div class="bank-card" onclick="showBankInfo('BCA', '1970769401', 'Ryan Alfaridzy', 'qrcode_bca.png')">
+          <img src="bankbca.png" alt="BCA">
+        </div>
+      </div>
+
+      <div class="upload-section">
+        <label for="buktiPembayaran">Unggah Bukti Pembayaran</label>
+        <input type="file" id="buktiPembayaran" name="buktiPembayaran" accept="image/*,application/pdf" required />
+      </div>
+
+      <button onclick="submitPembayaran()">Selesai</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    function submitPembayaran() {
+      const bukti = document.getElementById('buktiPembayaran').files[0];
+      if (!bukti) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Silakan unggah bukti pembayaran terlebih dahulu!'
+        });
+        return;
+      }
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Pendaftaran Berhasil!',
+        text: 'Terima kasih, data dan bukti pembayaran Anda telah terkirim.'
+      });
+    }
+  </script>
+  <div class="contact-buttons">
+    <a href="https://wa.me/6282219244749" target="_blank" class="contact-button whatsapp" title="Hubungi via WhatsApp">
+      <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp" />
+    </a>
+    <a href="https://www.instagram.com/ksrpmiunitunsur_/" target="_blank" class="contact-button instagram" title="Lihat Instagram">
+      <img src="https://img.icons8.com/fluency/48/000000/instagram-new.png" alt="Instagram" />
+    </a>
+  </div>
+</body>
+</html>
